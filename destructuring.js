@@ -22,6 +22,7 @@ var carDetails = {
 */
 
 //Code Here
+var {color, make, model, year} = carDetails
 
 
 
@@ -33,7 +34,7 @@ var carDetails = {
   The property names are firstName, lastName, and title.
 */
 
-function greeting( obj ) {
+function greeting({firstName,lastName,title} ) {
   //Code Here
   
   // Do not edit the code below.
@@ -54,7 +55,10 @@ function greeting( obj ) {
 */
 
 //Code Here
-
+function totalPopulation (obj) {
+  var {utah, california,texas,arizona} = obj
+  return utah + california + texas + arizona
+}
 
 
 ////////// PROBLEM 4 //////////
@@ -70,6 +74,12 @@ function greeting( obj ) {
 //Code Here
 
 
+var ingredients = ({carb,fat,protein}) => {
+  var macroArr = [];
+  macroArr.push(carb,fat,protein);
+  return macroArr;
+}
+// console.log(macroArr)
 
 ////////// PROBLEM 5 //////////
 
@@ -86,7 +96,9 @@ function greeting( obj ) {
 */
 
 //Code Here
-
+var largeNumbers = ({first,second,third}) => {
+  return Math.min(first,second,third)
+}
 
 
 ////////// PROBLEM 6 //////////
@@ -98,5 +110,13 @@ function greeting( obj ) {
 */
 
 //Code Here
-
+var numberGroups = ({a,b,c}) => {
+  if(a.length > b.length && a.length > c.length) {
+    return a
+  } else if(b.length > a.length && b.length > c.length) {
+    return b
+  } else {
+    return c
+  }
+}
 

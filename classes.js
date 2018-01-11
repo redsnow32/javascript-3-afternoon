@@ -31,7 +31,18 @@
 
 //Code Here
 
-
+class Employee {
+  constructor (first_name, last_name, email, age) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+  }
+  makeWidget () {
+    // var word = "Widget";
+    return this.first_name + " " + this.last_name + " " + "Widget";
+  }
+}
 
 ////////// PROBLEM 2 //////////
 
@@ -50,6 +61,28 @@
 */
 
 //Code Here
+// class Manager extends Employee
+class Manager {
+  constructor (first_name, last_name, email, age, reports) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports = [];
+  }
+  makeWidget () {
+    // var word = "Widget";
+    return this.first_name + " " + this.last_name + " " + "Widget";
+  }
+  hire (employee) {
+    this.reports.push(employee);
+    return this.reports;
+  }
+  fire (index) {
+      this.reports.splice(index,1)
+    }
+  }
+
 
 
 
@@ -76,7 +109,52 @@
 */
 
 //Code Here
+class ProgressiveManager {
+  constructor (first_name, last_name, email, age, reports) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports = [];
+    this.title = "Not a manager";
+    this.bonus = 0;
+  }
+  makeWidget () {
+    // var word = "Widget";
+    return this.first_name + " " + this.last_name + " " + "Widget";
+  }
+  hire (employee) {
+    this.reports.push(employee)
+    var reportLength = this.reports.length;
+    switch (true) {
+      case reportLength <= 0:
+        this.title = "Not a Manager";
+        break;
+      case reportLength >= 1 && reportLength <=3:
+        this.title = "Barely Manager";
+        break;
+      case reportLength >= 4 && reportLength <= 10:
+        this.title = "Mostly Manager";
+        break;
+      case reportLength >= 11 && reportLength <= 50:
+        this.title = "Manager";
+        break;
+      case reportLength >= 51 && reportLength <= 100:
+        this.title = "Manager Plus";
+        break;
+      case reportLength >= 101:
+        this.title = "Bestest Manager";
+        break;
+      default:
+        this.title = "Not a Manager" 
+    }
 
+    
+  }
+  fire (index) {
+      this.bonus = this.bonus+100;
+  }
+}
 
 
 ////////// PROBLEM 4 - Black Diamond //////////
@@ -103,5 +181,24 @@
 */
 
 //Code Here
-
+class Machine {
+  constructor() {
+    this.widgets_made_count = 0,
+    this.wear_and_tear_count = 0,
+    this.needs_reboot = false
+  } 
+  makeWidgets (num) {
+    this.widgets_made_count += num;
+    this.wear_and_tear_count += num/50;
+  }
+  fixMachine () {
+    this.needs_reboot = true;
+  }
+  reboot (){
+    this.needs_reboot = false;    
+    this.wear_and_tear_count -= 10;
+    return function () {}
+  }
+}
+// var mac = new Machine ()
 
