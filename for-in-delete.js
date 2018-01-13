@@ -37,14 +37,26 @@ for(var key in values) {
 
 /*
   Inside the function showValues, write a for in loop that concatenates each of the property values and returns the concatenated string.
-*/
+
+  iterate through prop vals
+  return concated string
+  */
 
 function showValues( obj ) {
+  var strArr = [];
   for(var key in obj) {
-    key
+    strArr.push(obj[key]);
+    var strings = strArr.join("")
   }
-  return obj
+  return strings;
 }
+
+
+//     string.push(obj[key]);
+//     console.log(string.join(''))
+//   }
+//   console.log(string)
+//   return string;
 
 
 
@@ -57,7 +69,7 @@ function showValues( obj ) {
 */
 
 //Code Here
-var greaterThan = (obj) => {
+var greaterThan10 = (obj) => {
   for(var key in obj) {
     if(obj[key]>10) {
       obj[key] = 0
@@ -95,17 +107,24 @@ function double (obj) {
 */
 
 //Code Here
-function secrets (randObj) {
+var Obj = {
+  name:"brandon",
+  stuff:"shame",
+  shelf:"shape"
+}
+function secrets (Obj) {
   var str = "";
-  for(let key in randObj) {
-    if(randObj[key]===indexOf("sh")) {
-      randObj[key] + str;
-      return randObj
+  var noSH = []
+  for(var key in Obj) {
+    if(Obj[key]){
+
     }
   }
-  return randObj;
-}
 
+  return str
+} 
+secrets(Obj)
+console.log(Obj)
 
 /* 
   Sometimes it's needed to delete object properties. 
@@ -135,7 +154,13 @@ function secrets (randObj) {
 */
 
 //Code Here
-
+function removePassword (obj) {
+  for(var key in obj) {
+    delete obj["password"]
+  }
+  return obj
+}
+removePassword()
 
 
 ////////// PROBLEM 6 //////////
@@ -154,8 +179,17 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
-
+function numsDeleted (deleteTheBigNumbers) {
+  for(var prop in deleteTheBigNumbers) {
+    if(deleteTheBigNumbers[prop]>100) {
+      delete deleteTheBigNumbers[prop]
+    }
+    
+  }
+  return deleteTheBigNumbers
+}
+numsDeleted(deleteTheBigNumbers)
+console.log(deleteTheBigNumbers)
 
 ////////// PROBLEM 7 //////////
 
@@ -165,10 +199,21 @@ var deleteTheBigNumbers = {
   If any property name starts with k, delete that property.
   Return the updated object.
 */
-
 //Code Here
 
+function startsWithK (Obj) {
+  var str =""
+  for(var key in Obj) {
+    if(Obj[key].indexOf("b")) {
+      delete Obj.key
+    }
+  
+   console.log(Obj[key]) 
+  }
+}
 
+startsWithK(Obj)
+console.log(Obj)
 
 ////////// PROBLEM 8 //////////
 

@@ -51,7 +51,18 @@ var employees = [
 */
 
 //Code Here
-var employeeUpdater = () =>
+var employeeUpdater = () => {
+  for(var i = 0; i < employees.length; i++){
+    if(employees[i].firstName === "Theo") {
+      employees.splice(i,1)
+    }
+    if(employees[i].firstName === "Lorie") {
+      employees[i].department = "HR";
+    }
+  }
+  return employees;
+}
+// console.log(employeeUpdater)
 
 
 
@@ -70,6 +81,26 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 */
 
 //Code Here
+// function removeDuplicates() {
+//   for(var i = 0; i<workplaceAccidents.length;i++){
+//     for(var j = i +1; j<workplaceAccidents.length;i++) {
+//       if(workplaceAccidents[i] === workplaceAccidents[j]){
+//         arr.splice(i,1);
+//         i--
+//       }
+//     }
+//   }
+// }
+function removeDuplicates(arr) {
+  for(var i = 0; i<workplaceAccidents.length;i++){
+    for(var j = workplaceAccidents.length-1; j > i; j--) {
+      if(workplaceAccidents[i] === workplaceAccidents[j]){
+        workplaceAccidents.splice(i,1);
+      }
+    }
+  }
+  return workplaceAccidents;
+}
 
 
 
@@ -98,8 +129,8 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
 
 
 
@@ -141,7 +172,12 @@ var myCar = {
 
 //Code Here
 
-
+var recordCleaner = () => {
+  for(let i = 0; i < myCar.accidents.length; i++) {
+    myCar.accidents[i].atFaultForAccident = false;
+    // console.log(myCar.accidents[i].atFaultForAccident)
+  }
+}
 
 ////////// PROBLEM 5 //////////
 
@@ -160,4 +196,31 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 
 //Code Here
 
+// var looper = numsArr.filter((x) => {
 
+//   var stringArr = x.filter((y) => {
+//      var arr =y%2===0 ? y ="even" : y ="odd";
+//     //  console.log(y)
+//      return arr;
+//   }) 
+//   console.log(stringArr)
+//   return stringArr;   
+// })
+
+
+
+function looper  () {
+  for(var i = 0; i<numsArr.length;i++) {
+    var num2 = numsArr[i]
+    for(var j = 0; j<num2.length; j++){
+      var strings = numsArr[j]
+    console.log(num2[j]) 
+      if(num2[j]%2===0) {
+        num2[j] = "even";
+      } else {
+        num2[j] = "odd";
+      }
+    }
+  }
+  return numsArr;
+}

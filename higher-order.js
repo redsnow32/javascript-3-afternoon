@@ -98,11 +98,7 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 */
 
 //Code Here
-var myStrongest  = monstersInYourPocket.filter((index) => {
-  if(index < 200) {
-    index;
-  }
-});
+var myStrongest  = monstersInYourPocket.filter((obj) => obj.CP>200);
 
 
 
@@ -119,8 +115,14 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
   Use a high order method to get sum of all the order totals
 */
 
-let ordersTotal //Code Here
-
+var ordersTotal = orders.filter((obj) => {
+  var total = obj.price + obj.tax;
+  return total;
+})
+// let ordersTotal = orders.map(function(value) {
+//   var price = value.price * value.tax;
+//   return price;
+// });
 
 
 ////////// PROBLEM 6 //////////
@@ -139,6 +141,13 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
   Use a high order method to create to get the sum of bobsTotal.
 */
 
-let bobsTotal //Code Here
+var bobsTotal = purchases.reduce((accumulator,curr) => {
+  if(curr.owner==="Bob") {
+    return accumulator + curr.price;
+  }
+  return accumulator;
+},0);
 
-
+// if(obj.bob === true) {
+  //   total.push(obj.price)
+  //   console.log(total)
